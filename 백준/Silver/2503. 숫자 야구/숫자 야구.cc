@@ -56,6 +56,7 @@ int main() {
 				numArr[i] = false;
 				continue;
 			}
+            if (!numArr[i]) continue;
 			if (checkStrikeAndBall(num, i, strike, ball)) numArr[i] = false;
 		}
 	}
