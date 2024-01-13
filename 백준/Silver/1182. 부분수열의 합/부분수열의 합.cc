@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#define fastio ios::sync_with_stdio(false), cin,tie(NULL), cout.tie(NULL)
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	int N, S;
 	int total = 0, count = 0;
 	
