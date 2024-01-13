@@ -1,7 +1,6 @@
 #include <iostream>
 #include <set>
 #include <math.h>
-#define fastio ios::sync_with_stdio(false), cin,tie(NULL), cout.tie(NULL)
 using namespace std;
 
 void calTriNum(set<int>& triNum) {
@@ -11,6 +10,7 @@ void calTriNum(set<int>& triNum) {
 }
 
 int main() {
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	int T, num = 0;
 	set<int> triNum;
 	calTriNum(triNum);
