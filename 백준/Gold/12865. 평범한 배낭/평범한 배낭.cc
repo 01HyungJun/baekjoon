@@ -16,9 +16,6 @@ int main() {
 		cin >> package[i][0] >> package[i][1];
 	}
 
-	vector<int>(K + 1, 0).swap(dp[0]);
-	sort(package.begin(), package.end());
-
 	for (int i = 0; i < N; i++) {	// 물건 종류
 		for (int j = 0; j <= K; j++) {	// 물건 가치
 			dp[i + 1][j] = max(dp[i + 1][j], dp[i][j]);
