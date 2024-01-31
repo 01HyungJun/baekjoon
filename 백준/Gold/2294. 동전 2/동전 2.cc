@@ -7,26 +7,12 @@ int N, K;
 vector<int> coin;
 vector<vector<int>> dp;
 
-int count_coin(int n, int k) {
-	if (n == coin.size()) {
-		if (k == 0) return 0;
-		else return 100000;
-	}
-	if (dp[n][k] != -1) return dp[n][k];
-
-	int result = count_coin(n + 1, k);
-	if (k >= coin[n]) result = min(result, count_coin(n, k - coin[n]) + 1);
-
-	dp[n][k] = result;
-	return result;
-}
-
 int main() {
 	ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
 	cin >> N >> K;
 
-	dp.resize(N, vector<int>(K + 1, -1));
+	dp.resize(N + 1, vector<int>(K + 1, 100000));
 
 	int input;
 	for (int i = 0; i < N; i++) {
@@ -44,7 +30,16 @@ int main() {
 
 	sort(coin.begin(), coin.end());
 
-	int output = count_coin(0, K);
-	if (output != 100000) cout << output;
-	else cout << -1;
+
+	for (int i = 0; i < N; i++) {
+		dp[i][0] = 0;
+		for (int j = 0; j <= K; j++) {
+			dp[i + 1][j] = dp[i][j];
+			int temp = j + coin[i];
+			if (temp <= K) dp[i][temp] = min(dp[i][temp], dp[i][j] + 1);
+		}
+	}
+
+	if (dp[N - 1][K] == 100000) cout << -1;
+	else cout << dp[N - 1][K];
 }
