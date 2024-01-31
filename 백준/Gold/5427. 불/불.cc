@@ -63,7 +63,7 @@ public:
 					int n_fire_y = c_fire_y + dy[j];
 					int n_fire_x = c_fire_x + dx[j];
 					if (building[n_fire_y][n_fire_x] == 1 && !visited[n_fire_y][n_fire_x]) {	// 사람이 지나갔던 곳도 번져야하나? 굳이?
-						building[n_fire_y][n_fire_x] = 2;
+						building[n_fire_y][n_fire_x] = 2;										// 정답 : 굳이 고려하지 않아도 된다.
 						visited[n_fire_y][n_fire_x] = true;
 						fire_q.emplace(n_fire_y, n_fire_x);
 					}
