@@ -22,8 +22,8 @@ int main() {
 	int found = 0;
 	dp[0] = true;
 	for (int j = 0; j < s.length(); j++) {
-		for (int i = 0; i < N; i++) {
-			if (dp[j] == true) {
+		if (dp[j] == true) {
+			for (int i = 0; i < N; i++) {
 				found = s.find(A[i], j);
 				if (found == j) dp[found + A[i].length()] = true;
 			}
