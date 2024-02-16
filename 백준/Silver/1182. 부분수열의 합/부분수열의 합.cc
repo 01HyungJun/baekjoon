@@ -1,32 +1,42 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <deque>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-	int N, S;
-	int total = 0, count = 0;
-	
-	cin >> N >> S;
+int N, S;
+int currSum = 0, cnt = 0;
+deque<int> d;
 
-	vector<int> arr(N, 0);
+void dfs(int curr) {
+    if (curr == N) return;
 
-	for (int i = 0; i < N; i++) {
-		cin >> arr[i];
-	}
+    if (currSum + d[curr] == S) cnt++;
 
-	for (int i = 1; i <= N; i++) {
-		vector<bool> subArr(N - i, false);
-		subArr.insert(subArr.end(), i, true);
-		do {
-			total = 0;
-			for (int j = 0; j < N; j++) {
-				if (subArr[j]) total += arr[j];
-			}
-			if (total == S) count++;
-		} while (next_permutation(subArr.begin(), subArr.end()));
-	}
+    dfs(curr + 1);
 
-	cout << count;
+    currSum += d[curr];
+    dfs(curr + 1);
+
+    currSum -= d[curr];
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    
+    cin >> N >> S;
+
+    d.resize(N);
+
+    for (int i = 0; i < N; i++) {
+        cin >> d[i];
+    }
+
+    dfs(0);
+
+    cout << cnt;
+
+    return 0;
 }
