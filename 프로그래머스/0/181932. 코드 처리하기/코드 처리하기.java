@@ -1,18 +1,18 @@
 class Solution {
     public String solution(String code) {
         StringBuilder sb = new StringBuilder();
-        char[] ch = code.toCharArray();
         boolean mode = false;
         
-        for (int i = 0; i < ch.length; i++) {
-            if (ch[i] == '1') {
+        for (int i = 0; i < code.length(); i++) {
+            char ch = code.charAt(i);
+            if (ch == '1') {
                 mode = !mode;
             }
             else if (!mode && (i % 2 == 0)) {
-                sb.append(ch[i]);
+                sb.append(ch);
             }
             else if (mode && (i % 2 != 0)) {
-                sb.append(ch[i]);
+                sb.append(ch);
             }
         }
         String answer = sb.toString();
