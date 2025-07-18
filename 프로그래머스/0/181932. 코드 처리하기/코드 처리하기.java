@@ -8,7 +8,7 @@ class Solution {
             if (ch == '1') {
                 mode = !mode;
             }
-            else if (!mode && (i % 2 == 0)) {
+            else if (!mode && (i % 2 == 0))  {
                 sb.append(ch);
             }
             else if (mode && (i % 2 != 0)) {
