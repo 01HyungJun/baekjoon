@@ -2,13 +2,11 @@ class Solution {
     public int[] solution(String my_string) {
         int[] answer = new int[52];
         for (char c : my_string.toCharArray()) {
-            if ('a' <= c && c <= 'z') {
-                int i = c - 'a' + 26;
-                answer[i]++;
+            if ('a' <= c && c <= 'z') {                
+                answer[c - 'a' + 26]++;
             }
             else {
-                int i = c - 'A';
-                answer[i]++;
+                answer[c - 'A']++;
             }
         }
         return answer;
