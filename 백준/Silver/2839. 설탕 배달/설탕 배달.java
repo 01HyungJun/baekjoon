@@ -8,10 +8,8 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         int min = Integer.MAX_VALUE;
         for (int i = 0; i * 5 <= n; i++) {
-            for (int j = 0; j * 3 + i * 5 <= n; j++) {
-                if ((i * 5 + j * 3) == n) {
-                    min = Math.min(min, i + j);
-                }
+            if (((n - i * 5) % 3) == 0) {
+                min = Math.min(min, i + ((n - i * 5) / 3));
             }
         }
         if (min == Integer.MAX_VALUE) {
