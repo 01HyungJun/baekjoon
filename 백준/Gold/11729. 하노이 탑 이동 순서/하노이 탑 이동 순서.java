@@ -14,8 +14,7 @@ public class Main {
 
         hanoi(step - 1, start, 6 - start - goal);
 
-        List<Integer> temp = new ArrayList<>(List.of(start, goal));
-        list.add(temp);
+        list.add(List.of(start, goal));
         cnt++;
 
         hanoi(step - 1, 6 - start - goal, goal);
